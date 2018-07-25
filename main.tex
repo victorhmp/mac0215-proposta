@@ -1,0 +1,160 @@
+\documentclass[10pt,twoside,a4paper]{article}
+% ^- openany - open new pages in odd/even page
+
+%packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}      % Encoding
+\usepackage[portuguese]{babel}   % Correção
+%\usepackage{caption}             % Legendas
+\usepackage{enumerate}
+
+% Matemática
+\usepackage{amsmath}             % Matemática
+\usepackage{amsthm, amssymb}     % Matemática
+\newtheorem*{def*}{Definição}
+\newtheorem*{invariant}{Invariante}
+
+% Gráficos
+\usepackage[usenames,dvipsnames]{color}  % Cores
+\usepackage[pdftex]{graphicx}   % usamos arquivos pdf/png como figura
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+
+% Desenhos
+\usepackage{tikz}
+\usepgfmodule{decorations}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.shapes}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{positioning} % Adjust grid size
+
+% Código-fonte
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+
+% Configurações da página
+\usepackage{fancyhdr}           % header & footer
+\usepackage{float}
+\usepackage{setspace}           % espaçamento flexível
+\usepackage{indentfirst}        % Identa primeiro parágrafo
+\usepackage{makeidx}
+\usepackage[nottoc]{tocbibind}  % acrescentamos a  bibliografia/indice/
+                                % conteudo no Table of Contents
+                                
+% Fontes
+%\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{type1cm}            % fontes realmente escaláveis
+\usepackage{titletoc}
+\usepackage{pdflscape}          % Páginas em paisagem
+\usepackage{pdfpages}
+
+% Fontes e margens
+\usepackage[fixlanguage]{babelbib}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage[a4paper,top=3.0cm,bottom=3.0cm,left=2.0cm,right=2.0cm]{geometry}
+
+% Referências e citações
+\usepackage[
+    pdftex,
+    breaklinks,
+    plainpages=false,
+    pdfpagelabels,
+    pagebackref,
+    colorlinks=true,
+    citecolor=DarkGreen,
+    linkcolor=DarkBlue,
+    urlcolor=DarkRed,
+    filecolor=green,
+    bookmarksopen=true
+]{hyperref} 
+\usepackage[all]{hypcap} % Soluciona o problema com o hyperref e capitulos
+\usepackage[round,sort,nonamebreak]{natbib} % Citação bibliográfica plainnat-ime
+%\bibpunct{(}{)}{;}{a}{\hspace{-0.7ex},}{,}  % Estilo de citação
+\bibpunct{(}{)}{;}{a}{,}{,}
+
+% Info
+\title{MAC0215 - Proposta}
+\author{
+  \begin{tabular}{rl}
+    Aluno:      & Victor Hugo Miranda Pinto \\
+    Supervisor: & Alfredo Goldman vel Lebman \\
+    Co-supervisor: & Renato Cordeiro
+  \end{tabular}
+}
+\date{2º Semestre de 2018}
+
+\graphicspath{ {./img/} }
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Resumo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  Será escrito por último.
+
+\section{Introdução}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  Introduzir tópicos necessários para o entendimento do trabalho.
+
+  \subsection{Hackathons}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+    Introduzir o conceito de Hackathon, de maneira mais geral e os tipos de Hackathons.
+
+    
+  \subsection{HackathonUSP}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    Introduzir a ideia e a visão por trás do HackathonUSP
+    
+  \subsection{Seleção de participantes}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    Introduzir e ressaltar como a seleção de participantes é importante e como ela é realizada atualmente. Esse seria o problema que o resultado final dessa pesquisa iria resolver.
+
+  \subsection{Eventual introdução aos algoritmos para análise dos dados}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\section{Objetivos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % Ressaltar os objetivos dessa pesquisa e o que se espera como resultado final
+    Nessa pesquisa, tenho como objetivo:
+    \begin{itemize}
+      \item \textbf{Estabelecer um critério de seleção para o  HackathonUSP}\\
+        Com essa pesquisa, espero estabelecer um critério de seleção que minimize o grau de desistência ao passo que maximize a diversidade (gênero, ano de ingresso, curso, unidade) entre os participantes do evento.
+
+      \item \textbf{Segundo Objetivo}\\
+        Após o desenvolvimento do algoritmo de seleção, desenvolver um serviço que faça a sugestão automática de participantes para o HackathonUSP pautada nos critérios citados acima.
+    \end{itemize}
+    
+\section{Plano de Trabalho}
+  
+  Apresentar os passos de progresso para o projeto (talvez um timeline)
+
+  \begin{itemize}
+    \item \textbf{Preparo dos dados a serem analisados} \\
+        Nessa primeira fase da pesquisa, com previsão de durar por volta de um mês e meio, será feita a coleta e agregação do conjunto de dados que será utilizado para a pesquisa, além da normalização desses dados e a geração de visualizações para primeiros insights sobre os dados que tenho a disposição. Esses dados serão obtidos das inscrições nas edições passadas do HackathonUSP.
+    
+    \item \textbf{Desenvolvimento do algoritmo} \\
+        Na segunda fase da pesquisa, seriam definidos os critérios preliminar de decisão para o algoritmo de seleção e a comparação de diferentes modelos segundo critérios de acurácia. Assim espero obter o algoritmo que será utilizado no primeiro teste da pesquisa em um conjunto diferente do conjunto de teste.
+          
+    \item \textbf{Desenvolvimento do serviço} \\
+        Após decidir o algoritmo a ser utilizado sobre os futuros dados de teste, será iniciado o desenvolvimento de um módulo integrante da plataforma Hacknizer, desenvolvida pelo USPCodeLab, utilizando Flask para criar uma GraphQL API que receberá uma lista de inscritos para uma edição de um determinado Hackathon e, aplicando o algoritmo desenvolvido, poderá gerar uma lista sugerindo os participantes para tal Hackathon. 
+    
+    \item \textbf{Feedback} \\
+        O segundo HackathonUSP de 2018 irá ocorrer no dia 02 de novembro. Planejo utilizar o serviço desenvolvido para obter uma sugestão dos participantes a serem chamados para o evento. Com isso, poderia obter feedback de toda a pesquisa realizada e do algoritmo criado, na perspectiva de organizador do evento e também dos participantes. Com esses resultados, será elaborado o resultado final da pesquisa para esse semestre. Ressaltando que o serviço gerado e o algoritmo desenvolvido continuará a ser aperfeiçoado.
+
+  \end{itemize}
+
+\section{Método de acompanhamento}
+
+    Na página <link> divulgarei semanalmente as discussões realizadas com meus supervisores e os avanços na pesquisa. Além da página, manterei um repositório no GitHub em <link> contento todo o código sendo desenvolvido.
+
+\end{document}
