@@ -115,7 +115,22 @@
   \subsection{Seleção de participantes}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-    Introduzir e ressaltar como a seleção de participantes é importante e como ela é realizada atualmente. Esse seria o problema que o resultado final dessa pesquisa iria resolver.
+    % Introduzir e ressaltar como a seleção de participantes é importante e como ela é realizada atualmente. Esse seria o problema que o resultado final dessa pesquisa iria resolver.
+    Um dos elementos mais importantes e decisivos para o sucesso do HackathonUSP é a seleção dos seus participantes, pois é através dela que podemos reforçar a visão que nós do USPCodeLab temos sobre o evento no que diz respeito à tornar o HackathonUSP acessível para todos os alunos da universidade.
+    Atualmente, seguimos um algoritmo de seleção que pode ser muito melhorado:
+    
+    \begin{itemize}
+      \item \textbf{Definimos o número (M) de participantes no evento}: Definimos o número de participantes que esperamos receber baseado na infraestrutura disponível para o evento e no número que consideramos razoável para manter a qualidade do evento.
+
+      \item \textbf{Recebemos as N inscrições para o HackathonUSP}: Abrimos as inscrições para os participantes pelo nosso site, em uma data e horário divulgado previamente.
+      
+      \item \textbf{Selecionamos os M primeiros inscritos}: são selecionados os primeiros M inscritos, por ondem de inscrição.
+      
+      \item \textbf{Consideramos a taxa de desistência (D)}: selecionamos mais inscritos para obter M participantes efetivos contando com um percentual D de desistência (em geral, 150\% de M para D igual a 33\%). Para essa etapa da seleção, levamos em consideração: completamento de times, selecionando um inscrito que participa de um time cujos demais integrantes foram selecionados nos primeiros M; paridade de gêneros, selecionando mulheres que não tenham times para equilibrar a proporção de gênero entre os selecionados (a área da computação conta com um percentual pequeno de mulheres comparativamente ao de homens); desempenho em edições anteriores, como último critério de completamento, podemos selecionar times cujos membros tiveram destaque em edições anteriores mesmo que nenhum deles estivesse entre os N primeiros
+    \end{itemize}
+    
+    Com a minha pesquisa, poderíamos ter um processo de seleção mais elaborado, visando aumentar a qualidade do evento.
+    
 
   \subsection{Eventual introdução aos algoritmos para análise dos dados}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,16 +142,16 @@
     % Ressaltar os objetivos dessa pesquisa e o que se espera como resultado final
     Nessa pesquisa, tenho como objetivo:
     \begin{itemize}
-      \item \textbf{Estabelecer um critério de seleção para o  HackathonUSP}\\
+      \item \textbf{Estabelecer um novo critério de seleção para o  HackathonUSP}\\
         Com essa pesquisa, espero estabelecer um critério de seleção que minimize o grau de desistência ao passo que maximize a diversidade (gênero, ano de ingresso, curso, unidade) entre os participantes do evento.
 
-      \item \textbf{Segundo Objetivo}\\
+      \item \textbf{Criar um serviço automático de seleção de participantes}\\
         Após o desenvolvimento do algoritmo de seleção, desenvolver um serviço que faça a sugestão automática de participantes para o HackathonUSP pautada nos critérios citados acima.
     \end{itemize}
     
 \section{Plano de Trabalho}
   
-  Apresentar os passos de progresso para o projeto (talvez um timeline)
+  Para atingir os objetivos propostos, planejo seguir as seguintes etapas:
 
   \begin{itemize}
     \item \textbf{Preparo dos dados a serem analisados} \\
