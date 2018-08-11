@@ -98,23 +98,23 @@
 
 \section{Resumo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  Será escrito por último.
+  Hackathons ("hacker marathons") são eventos em que os participantes desenvolvem protótipos de software ou hardware num tempo restrito. O HackathonUSP é um hackathon universitário que tem como objetivo ser acessível para novos alunos e estimular a inovação tecnológica na Universidade de São Paulo (USP). Este projeto propõe a criação de um algoritmo para seleção automática de participantes do evento, utilizando dados dos inscritos e o número de participantes desejado. O algoritmo será construído usando um modelo de florestas aleatórias cujos critérios de decisão seguirão os utilizados pelos organizadores em seleções manuais e cujo treinamento será feito com dados coletados nas edições anteriores do evento. Dessa maneira, espera-se tornar a seleção mais rápida, transparente e reprodutível, beneficiando as próximas edições do HackathonUSP e criando um precedente para outros eventos do tipo.
 
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  Nesta sessão apresentaremos uma descrição de hackathons, dando uma definição geral sobre esse tipo de evento, e então o HackathonUSP em específico. Em seguida, introduziremos uma plataforma chamada Hacknizer, onde será integrado o código gerado nesta pesquisa.
+  Nesta sessão será apresentada uma descrição de hackathons, dando uma definição geral sobre esse tipo de evento, e introduzindo o HackathonUSP em específico. Em seguida, será apresentada a proposta da plataforma Hacknizer, onde será integrado o código gerado nesta pesquisa.
 
   \subsection{Hackathons}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-    O termo \textit{hackathon} vem da combinação das palavras \textit{hacking} e \textit{marathon}. Hackathons são eventos contínuos em que os participantes se organizam em pequenos times com o objetivo de criar um protótipo de software sob um limite de tempo (24 horas em seu formato mais comum). \cite{Komssi2015WhatFor}
+    O termo \textit{hackathon} vem da combinação das palavras \textit{hacking} e \textit{marathon}. Hackathons são eventos contínuos em que os participantes se organizam em pequenos times com o objetivo de criar um protótipo de software ou hardware sob um limite de tempo (24 horas em seu formato mais comum) \cite{Komssi2015WhatFor}.
     
-    Hackathons são realizados com muitos objetivos diferentes e de maneiras diferentes na maior parte dos casos, por empresas (normalmente de tecnologia) ou instituições de ensino. Graças à essa diversidade, não existe uma definição totalmente aceita sobre todos os detalhes de um hackathon.
+    Hackathons são realizados com objetivos e de maneiras diferentes. São feitos tanto por empresas (normalmente de tecnologia) quanto por instituições de ensino, sociedade civil ou governo.
     
-    Muitas empresas de tecnologia realizam hackathons internos, ou seja, apenas para seus funcionários, em geral com o objetivo de gerar inovação dentro da empresa e fazer com que os desenvolvedores trabalhem em projetos diferentes daqueles nos quais eles trabalham diariamente. Dependendo dos protótipos desenvolvidos durante o evento, a empresa pode decidir implantar a ideia. Uma empresa muito famosa por sua cultura de hackathons internos é a \textit{Facebook}, por exemplo. É comum essas empresas também realizarem hackathons abertos ao público, em geral com o objetivo de promover um novo produto na comunidade desenvolvedora. Em geral, esses eventos também incluem algum tipo de premiação para motivar a participação, constituindo portanto uma competição.
+    Muitas empresas de tecnologia realizam hackathons internos, ou seja, apenas para seus funcionários, com o objetivo de gerar inovação dentro da empresa ou para fazer com que os desenvolvedores trabalhem em projetos diferentes dos do seu dia a dia. Dependendo dos protótipos desenvolvidos durante o evento, a empresa pode decidir implantar a ideia. Uma empresa famosa por sua cultura de hackathons internos é a \textit{Facebook}. É comum que essas empresas também realizem hackathons abertos ao público, em geral com o objetivo de promover um novo produto na comunidade desenvolvedora. Em geral, esses eventos também incluem algum tipo de premiação para motivar a participação, constituindo portanto uma competição.
     
-    No contexto de instituições de ensino superior são realizados hackathons \textit{universitários}. Esse tipo de evento possui objetivos diferentes daqueles das empresas, já que costumam não ter fins lucrativos e buscam incentivar a criatividade e a inovação no ambiente universitário. Hackathons universitários são muito efetivos como ferramenta educacional para o crescimento de futuros desenvolvedores. Esses eventos fornecem um ambiente para aprendizado e experimentação com novas tecnologias de maneira muito rápida, além de incentivar os alunos a criar novas soluções para problemas muitas vezes internos \cite{Kayastha2017EnablingCompetition}. Além disso, incentivam a integração entre alunos de diferentes cursos, promovendo maior troca de experiências de forma complementar, dado que muitos problemas não podem ser resolvidos apenas com uma área do conhecimento.
+    No contexto de instituições de ensino superior, são realizados hackathons \textit{universitários}. Esse tipo de evento possui objetivos diferentes daqueles das empresas, já que costumam não ter fins lucrativos e buscam incentivar a criatividade e a inovação no ambiente universitário. Hackathons universitários são muito efetivos como ferramenta educacional para o crescimento de futuros desenvolvedores. Esses eventos fornecem um ambiente para aprendizado e experimentação com novas tecnologias. Ao mesmo tempo incentivam os alunos a criarem novas soluções para a comunidade interna \cite{Kayastha2017EnablingCompetition}. Além disso, propiciam a integração entre alunos de diferentes cursos, promovendo a interdisciplinaridade, a troca de conhecimentos e experiências.
 
   \subsection{HackathonUSP}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,15 +123,14 @@
     
     O objetivo do evento é ser um hackathon acessível, o primeiro evento do tipo para alunos da Universidade, ao passo que ajude a própria comunidade USP a gerar soluções relevantes para as suas demandas.
     
-\subsection{Seleção de participantes}
+  \subsection{Seleção de participantes}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-    % Introduzir e ressaltar como a seleção de participantes é importante e como ela é realizada atualmente. Esse seria o problema que o resultado final dessa pesquisa iria resolver.
-    Um dos elementos mais decisivos para o sucesso do HackathonUSP é a seleção dos seus participantes. Como o evento historicamente possui mais inscritos que vagas, a etapa de seleção é importante para maximizar a participatividade (i.e., evitar a desistência) e a diversidade (i.e., evitar o viés de público existente na computação) do evento, possibilitando o impacto proposto na visão do evento.
+    Um dos elementos mais decisivos para o sucesso do HackathonUSP é a seleção dos seus participantes. Como o evento historicamente possui mais inscritos que vagas, a etapa de seleção é importante para maximizar a participatividade (i.e., evitar a desistência) e a diversidade (i.e., evitar o viés de público existente na computação) do evento, possibilitando o impacto proposto pelos organizadores.
     O algoritmo de seleção atual pode ser descrito da seguinte maneira: \\
     
     
-Sejam N o número de inscritos no evento, M o número de participantes e D a taxa de desistência entre os selecionados para o evento. Os seguintes passos descrevem o algoritmo:
+    Sejam N o número de inscritos no evento, M o número de participantes e D a taxa de desistência entre os selecionados para o evento. Então:
     
     \begin{enumerate}
       \item Selecionar os primeiros M inscritos, por ondem de inscrição.
@@ -148,7 +147,7 @@ Sejam N o número de inscritos no evento, M o número de participantes e D a tax
   \subsection{Hacknizer}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    O Hacknizer é uma plataforma para organizar e hospedar hackathons, visando prover uma solução integrada e completa para a criação desses eventos. Ele está sendo construído pelo \textit{USPCodeLab} e seu desenvolvimento começou durante a \textit{USPCodeLab Winter School 2018}, um evento da série de \textit{dev.camps} (parte do ciclo \textit{dev.journey}) organizados pelo grupo com objetivo de experimentar as mais novas tecnologias disponíveis para o desenvolvimento Web.
+    O Hacknizer é uma plataforma para organizar e hospedar hackathons, visando prover uma solução integrada e completa para a criação desses eventos. Ele está sendo construído pelo \textit{USPCodeLab} e seu desenvolvimento começou durante a \textit{USPCodeLab Winter School 2018}, um evento do tipo \textit{dev.camp} (parte do ciclo \textit{dev.journey}) organizados pelo grupo com objetivo de experimentar novas tecnologias disponíveis para o desenvolvimento Web.
     
     A arquitetura do sistema segue o padrão de microsserviços, ou seja, a estrutura de \textit{backend} é constituída por módulos cujo desenvolvimento, implantação e replicação são semi-independentes, permitindo melhor escalabilidade do sistema \cite{Newman2015BuildingSystems}. Os serviços existentes são:
     
@@ -182,38 +181,40 @@ Sejam N o número de inscritos no evento, M o número de participantes e D a tax
         \item \href{https://prisma.io/}{\textbf{\textit{Prisma}}}: mapeador do esquema de APIs GraphQL para o PostgreSQL.
     \end{itemize}
     
-  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Objetivos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    % Ressaltar os objetivos dessa pesquisa e o que se espera como resultado final
     Os objetivos dessa pesquisa são:
     \begin{itemize}
         \item \textbf{Automatizar a seleção de participantes}\\
-          Buscaremos uma maneira de automatizar o processo de seleção já existente para o HackathonUSP. Com isso, pretendemos aumentar a transparência na organização do evento, garantir a reprodutibilidade do processo e diminuir o trabalho envolvendo tal seleção dado que o evento vem crescendo a cada edição.
+          Buscar uma maneira de automatizar o processo de seleção já existente para o HackathonUSP. Com isso, será possível aumentar a transparência na organização do evento, garantir a reprodutibilidade do processo e diminuir o trabalho envolvendo tal seleção dado que o evento vem crescendo a cada edição.
         
         \item \textbf{Integrar o algoritmo de seleção com o Hacknizer}\\
-          Trabalhando no serviço de \textbf{Seleção} do Hacknizer, adicionaremos um componente que recebe a lista de inscritos para um dado hackathon e é capaz de gerar uma recomendação dos participantes a serem convidados para o evento, aplicando o algoritmo desenvolvido no passo anterior.
+          Complementar o serviço de \textbf{Seleção} do Hacknizer, adicionando um componente que recebe a lista de inscritos para um dado hackathon e é capaz de gerar uma recomendação dos participantes para o evento, aplicando o algoritmo desenvolvido no passo anterior.
         
         \item \textbf{Investigar possíveis melhorias no algoritmo de seleção para o HackathonUSP}\\
-          Com essa pesquisa, esperamos estabelecer um critério de seleção que minimize o grau de desistência ao passo que maximize a diversidade (gênero, ano de ingresso, curso, unidade) entre os participantes do evento.
+          Estabelecer um critério de seleção que minimize o grau de desistência ao passo que maximize a diversidade (gênero, ano de ingresso, curso, unidade) entre os participantes do evento.
     \end{itemize}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
 \section{Metodologia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
       \begin{itemize}
           \item \textbf{Desenvolvimento do algoritmo} \\
-          Para o desenvolvimento do algoritmo de seleção e estudo do conjunto de dados disponíveis, vamos utilizar \textit{Python} devido à disponibilidade da biblioteca \href{http://scikit-learn.org}{\textit{scikit-learn}} que contém a implementação de diversos algoritmos para \textit{aprendizagem de máquina} e \href{http://jupyter.org/}{\textit{Jupyter Notebooks}}, uma aplicação web de código aberto que permite a criação e compartilhamento de documentos contendo código \textit{Python} e visualizações de dados. Em específico, vamos utilizar \textbf{florestas aleatórias}, um classificador que se baseia em múltiplas \textbf{árvores de decisão} aplicadas a um problema de classificação de forma que cada árvore classificadora é independente e contribui com o mesmo peso na classificação final \cite{Breiman2001RandomForests}. Variando os parâmetros considerados, vamos estudar como o algoritmo se comporta e qual seria o melhor conjunto de parâmetros para os nossos objetivos.
+          Para o desenvolvimento do algoritmo de seleção e estudo do conjunto de dados disponíveis, a linguagem \textit{Python} será utilizada devido à disponibilidade da biblioteca \href{http://scikit-learn.org}{\textit{scikit-learn}} que contém a implementação de diversos algoritmos para aprendizagem de máquina, e de \href{http://jupyter.org/}{\textit{Jupyter Notebooks}}, uma aplicação web de código aberto que permite a criação e compartilhamento de documentos contendo código \textit{Python} e visualizações de dados. Em particular, será utilizado um modelo de \textbf{florestas aleatórias}, um classificador que se baseia em múltiplas \textbf{árvores de decisão} aplicadas a um problema de classificação de forma que cada árvore classificadora é independente e contribui com o mesmo peso na classificação final \cite{Breiman2001RandomForests}. Variando os parâmetros considerados, será analisado como o algoritmo se comporta e qual seria o melhor conjunto de parâmetros para os nossos objetivos.
           
           \item \textbf{Integração com o Hacknizer} \\
-          Para integrar o algoritmo desenvolvido com o Hacknizer, vamos desenvolver um componente que fara parte do serviço de \textbf{Seleção} da plataforma. Esse componente será desenvolvido como uma API usando \href{http://flask.pocoo.org/}{\textit{Flask}}, um \textit{microframework} para desenvolvimento de APIs em \textit{Python}, e \href{https://graphene-python.org/}{\textit{Graphene}}, uma implementação em \textit{Python} da especificação \textit{GraphQL} de APIs. Essa API também será conteinerizada via \textit{Docker} e sua implantação poderá ser feito junto com os demais serviços do Hacknizer.
-          Escolhemos \textit{GraphQL} para a API porque todas as APIs dos outros serviços do Hacknizer usam essa especificação, e \textit{Python} com \textit{Flask} para a parte envolvendo \textit{aprendizagem de máquina}.
+          Para integrar o algoritmo desenvolvido com o Hacknizer, será desenvolvido um componente que fara parte do serviço de \textbf{Seleção} da plataforma. Esse componente será construído como uma API usando \href{http://flask.pocoo.org/}{\textit{Flask}}, um \textit{microframework} para desenvolvimento de APIs em \textit{Python}, e \href{https://graphene-python.org/}{\textit{Graphene}}, uma implementação em \textit{Python} da especificação \textit{GraphQL} de APIs. Essa API também será conteinerizada via \textit{Docker} e sua implantação poderá ser feito junto com os demais serviços do Hacknizer.
+          A especificação \textit{GraphQL} foi escolhida para a API porque todas as APIs dos outros serviços do Hacknizer a utilizam, ao passo que \textit{Python} com \textit{Flask} se integrará com a parte envolvendo aprendizagem de máquina.
       \end{itemize}
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
 \section{Plano de Trabalho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
   Os seguintes passos serão necessários para cumprir com os objetivos propostos:
 
@@ -228,16 +229,20 @@ Sejam N o número de inscritos no evento, M o número de participantes e D a tax
         Após decidir o algoritmo a ser utilizado, será desenvolvido um novo componente do serviço de seleção do Hacknizer, utilizando Flask para criar uma API GraphQL  que receberá uma lista de inscritos para uma edição de um determinado hackathon e, aplicando o algoritmo desenvolvido, poderá gerar uma lista sugerindo os participantes para tal hackathon. 
     
     \item \textbf{Feedback (10 horas)} \\
-        O HackathonUSP 2018.2, segunda edição da série neste ano, irá ocorrer nos dias 9 e 10 de novembro. Planejamos utilizar o serviço desenvolvido para obter uma sugestão dos participantes a serem chamados para o evento. Com isso, poderemos obter feedback do algoritmo criado, na perspectiva de organizador do evento e também dos participantes. Esse feedback seria coletado com os participantes pós-evento, enquanto a perspectiva dos organizadores virá de dentro do grupo \textit{USPCodeLab} em uma reunião pós-evento. Com esses resultados, será elaborado o relatório final da pesquisa para este semestre.
+        O HackathonUSP 2018.2, segunda edição da série neste ano, irá ocorrer nos dias 9 e 10 de novembro. O serviço desenvolvido será utilizado para obter uma sugestão dos participantes a serem chamados para o evento. Com isso, será possível obter feedback do algoritmo criado, na perspectiva de organizador do evento e também dos participantes. Esse feedback será coletado com os participantes pós-evento, enquanto a perspectiva dos organizadores virá de dentro do grupo \textit{USPCodeLab} em uma reunião pós-evento. Com esses resultados, será elaborado o relatório final da pesquisa para este semestre.
 
   \end{itemize}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Método de acompanhamento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     Na página https://victorhmp.github.io/mac0215-blog/ divulgarei semanalmente as discussões realizadas com meus supervisores e os avanços na pesquisa. Além da página, o código sendo desenvolvido estará no repositório do Hacknizer no GitLab: https://gitlab.com/uspcodelab/projects/hacknizer contento todo o código sendo desenvolvido.
     
     Meus supervisores serão: Professor Alfredo Goldman, que pode ser contatado pelo email: gold@ime.usp.br, e o aluno de mestrado Renato Cordeiro Ferreira, que pode ser contatado pelo email: renatocf@gmail.com.
-    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \bibliographystyle{alpha}
 \bibliography{mendeley}
