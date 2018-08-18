@@ -98,7 +98,11 @@
 
 \section{Resumo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  Hackathons ("hacker marathons") são eventos em que os participantes desenvolvem protótipos de software ou hardware num tempo restrito. O HackathonUSP é um hackathon universitário que tem como objetivo ser acessível para novos alunos e estimular a inovação tecnológica na Universidade de São Paulo (USP). Este projeto propõe a criação de um algoritmo para seleção automática de participantes do evento, utilizando dados dos inscritos e o número de participantes desejado. O algoritmo será construído usando um modelo de florestas aleatórias cujos critérios de decisão seguirão os utilizados pelos organizadores em seleções manuais e cujo treinamento será feito com dados coletados nas edições anteriores do evento. Dessa maneira, espera-se tornar a seleção mais rápida, transparente e reprodutível, beneficiando as próximas edições do HackathonUSP e outros eventos do tipo.
+  Hackathons ("hacker marathons") são eventos em que os participantes desenvolvem protótipos de software ou hardware num tempo restrito. O HackathonUSP é um hackathon universitário que tem como objetivo ser acessível para novos alunos e estimular a inovação tecnológica na Universidade de São Paulo (USP). Este projeto propõe a criação de um algoritmo para seleção automática de participantes do evento, utilizando dados dos inscritos e o número de participantes desejado. Ao longo do semestre, vamos investigar diferentes modelos e técnicas de aprendizado de máquina para desenvolver o algoritmo de seleção cujos critérios de decisão seguirão os utilizados pelos organizadores em seleções manuais, sendo o treinamento para os modelos feito com dados coletados nas edições anteriores do evento. Dessa maneira, espera-se tornar a seleção mais rápida e transparente, beneficiando as próximas edições do HackathonUSP e outros eventos do tipo.
+  
+  Nesta proposta, serão introduzidos alguns conceitos fundamentais para a pesquisa. Em seguida, quais os objetivos do trabalho para este semestre. Detalhamos a metodologia que seguiremos ao longo da pesquisa, seguida por um plano de trabalho que apresenta a evolução esperada durante o semestre, inclusive estimativas de tempo para concluir cada etapa. Por fim, descrevemos o método de acompanhamento do trabalho sendo desenvolvido.
+  
+%   O algoritmo será construído usando um modelo de florestas aleatórias cujos critérios de decisão seguirão os utilizados pelos organizadores em seleções manuais e cujo treinamento será feito com dados coletados nas edições anteriores do evento. Dessa maneira, espera-se tornar a seleção mais rápida e transparente, beneficiando as próximas edições do HackathonUSP e outros eventos do tipo.
 
 \section{Introdução}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,9 +130,9 @@
   \subsection{Seleção de participantes}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-    Um dos elementos mais decisivos para o sucesso do HackathonUSP é a seleção dos seus participantes. Como o evento historicamente possui mais inscritos que vagas, a etapa de seleção é importante para maximizar a participatividade (i.e., evitar a desistência) e a diversidade (i.e., evitar o viés de público existente na computação) do evento, possibilitando o impacto proposto pelos organizadores.
-    O algoritmo de seleção atual pode ser descrito da seguinte maneira: \\
+    Um dos elementos mais decisivos para o sucesso do HackathonUSP é a seleção dos seus participantes. Como o evento historicamente possui mais inscritos que vagas, a etapa de seleção é importante para maximizar a participatividade (i.e., evitar a desistência) e a diversidade (i.e., evitar o viés de público existente na computação) do evento, possibilitando o impacto proposto pelos organizadores. Entre os dados que compõem o formulário de inscrição, sempre está presente a pergunta sobre um possível \textbf{time}, onde o inscrito informa se possui um time já definido para o evento e quais são os integrantes desse time. Essa informação é utilizada no processo de seleção para evitar que times sejam "quebrados".
     
+    O método utilizado na seleção atual pode ser descrito da seguinte maneira: \\
     
     Sejam N o número de inscritos no evento, M o número de participantes e D a taxa de desistência entre os selecionados para o evento. Então:
     
@@ -192,7 +196,7 @@
     Os objetivos dessa pesquisa são:
     \begin{itemize}
         \item \textbf{Automatizar a seleção de participantes}\\
-          Buscar uma maneira de automatizar o processo de seleção já existente para o HackathonUSP. Com isso, será possível aumentar a transparência na organização do evento \textemdash pedido recorrente dos inscritos, garantir a reprodutibilidade do processo e diminuir o trabalho envolvendo tal seleção \textemdash dado os planos de expansão do evento para mais unidades da USP e o consequente aumento no volume de inscritos.
+          Buscar uma maneira de automatizar o processo de seleção já existente para o HackathonUSP. Com isso, será possível aumentar a transparência na organização do evento \textemdash pedido recorrente dos inscritos e diminuir o trabalho envolvendo tal seleção \textemdash dado os planos de expansão do evento para mais unidades da USP e o consequente aumento no volume de inscritos.
         
         \item \textbf{Integrar o algoritmo de seleção com o Hacknizer}\\
           Complementar o serviço de \textbf{Seleção} do Hacknizer, adicionando um componente que recebe a lista de inscritos para um dado hackathon e é capaz de gerar uma recomendação dos participantes para o evento, aplicando o algoritmo desenvolvido no passo anterior.
@@ -211,11 +215,21 @@
           A análise que será feita para esta pesquisa se baseia nos dados de inscrição obtidos dos inscritos nas edições anteriores do HackathonUSP. Esses dados foram preenchidos individualmente pelos inscritos e não possuem campos não estruturados (de modo geral, campos de texto sem formatação exigida). Como primeiro passo no tratamento dos dados, esses dados serão uniformizados e agrupados segundo o modelo de dados do Hacknizer.
       
           \item \textbf{Desenvolvimento do algoritmo} \\
-          Para o desenvolvimento do algoritmo de seleção e estudo do conjunto de dados disponíveis, a linguagem \textit{Python} será utilizada devido à disponibilidade da biblioteca \href{http://scikit-learn.org}{\textit{scikit-learn}} que contém a implementação de diversos algoritmos para aprendizagem de máquina, e de \href{http://jupyter.org/}{\textit{Jupyter Notebooks}}, uma aplicação web de código aberto que permite a criação e compartilhamento de documentos contendo código \textit{Python} e visualizações de dados. Em particular, será testado um modelo de \textbf{florestas aleatórias}, um classificador que se baseia em múltiplas \textbf{árvores de decisão} aplicadas a um problema de classificação de forma que cada árvore classificadora é independente e contribui com o mesmo peso na classificação final \cite{Breiman2001RandomForests}. Vamos considerar a distância entre a classificação gerada pelo algoritmo e uma seleção feita por membros do \textit{USPCodeLab} manualmente seguindo o algoritmo descrito na sessão 2.3, já conhecidas de edições anteriores do HackathonUSP.
+          Para o desenvolvimento do algoritmo de seleção e estudo do conjunto de dados disponíveis, a linguagem \textit{Python} será utilizada devido à disponibilidade da biblioteca \href{http://scikit-learn.org}{\textit{scikit-learn}} que contém a implementação de diversos algoritmos para aprendizagem de máquina, e de \href{http://jupyter.org/}{\textit{Jupyter Notebooks}}, uma aplicação web de código aberto que permite a criação e compartilhamento de documentos contendo código \textit{Python} e visualizações de dados. Em particular, vamos testar alguns classificadores:
+          
+          \begin{itemize}
+              \item Regressão Linear
+              \item Regressão Logística
+              \item Naïve Bayes
+              \item Árvores de Decisão 
+              \item Florestas Aleatórias
+          \end{itemize}
+          
+          Vamos considerar a distância entre a classificação gerada pelo algoritmo e uma seleção feita por membros do \textit{USPCodeLab} manualmente seguindo o algoritmo descrito na sessão 2.3, já conhecidas de edições anteriores do HackathonUSP.
           Vamos decidir os \textbf{meta-parâmetros} dos modelos (e.g., quais as perguntas a serem consideradas na hora da montagem das florestas). Em seguida, será analisado qual seria o melhor conjunto de \textbf{parâmetros} para o treinamento dos modelos. Isso demandará a criação de características (\textit{features}) derivadas dos dados brutos, tais como as conexões entre times, coletada de forma não estruturada nos formulários.
           
           \item \textbf{Integração com o Hacknizer} \\
-          Para integrar o algoritmo desenvolvido com o Hacknizer, será desenvolvido um componente que fara parte do serviço de \textbf{Seleção} da plataforma. A integração entre o novo componente e a arquitetura do Hacknizer, em particular o serviço de seleção, será via \textit{Kafka}, ferramenta da Apache para \textit{streaming} de dados. Essa API também será conteinerizada via \textit{Docker} e sua implantação poderá ser feito junto com os demais serviços do Hacknizer.
+          Para integrar o algoritmo desenvolvido com o Hacknizer, será desenvolvido um componente que fará parte do serviço de \textbf{Seleção} da plataforma. A integração entre o novo componente e a arquitetura do Hacknizer, em particular o serviço de seleção, será via \textit{Kafka}, ferramenta da Apache para \textit{streaming} de dados. Essa API também será conteinerizada via \textit{Docker} e sua implantação poderá ser feita junto com os demais serviços do Hacknizer.
           A ferramentas \textit{Kafka} foi escolhida para construir o serviço porque todos os outros serviços do Hacknizer a utilizam, ao passo que \textit{Python} com \textit{Flask} se integrará com a parte envolvendo aprendizagem de máquina.
       \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -227,13 +241,13 @@
 
   \begin{itemize}
     \item \textbf{Limpeza e organização dos dados a serem analisados (25 horas)} \\
-        Nessa primeira fase da pesquisa, com previsão de durar por volta de um mês e meio, será feita a coleta e agregação do conjunto de dados utilizado para a pesquisa, além da normalização desses dados e a geração de visualizações para primeiros \textit{insights}. Esses dados serão coletados das edições anteriores do HackathonUSP.
+        Nessa primeira fase da pesquisa, com previsão de durar por volta de um mês e meio, será feita a coleta e agregação do conjunto de dados utilizado para a pesquisa, além da normalização desses dados e a geração de visualizações para primeiros \textit{insights}. Esses dados serão coletados das edições anteriores do HackathonUSP, cerca de 1200 inscrições onde temos os campos: "Nome completo", "Gênero", "NUSP", "RG", "Telefone", "Escola / faculdade / instituto", "Curso / programa de pós", "Ano de curso", "Você já participou de quantos hackathons? Se participou de mais de um hackathon, diga quantos", "Qual a sua especialidade?", "Você já tem uma equipe formada?", "Se sim, conte-nos quem são:", "Você gostaria de receber mais notícias sobre os nossos hackathons?", "Endereço de e-mail", "Em que nível de estudo você está atualmente?".
     
     \item \textbf{Estudo de diferentes técnicas de aprendizado de máquina (15 horas)} \\
-        Para entender melhor os modelos que podemos utilizar no desenvolvimento do algoritmo, será feito o estudo de algumas técnicas de aprendizado de máquina e de como validar os resultados obtidos de cada modelo utilizado, buscando entender melhor o comportamento de cada técnica. Algumas dessas técnicas serão os classificadores: \textit{Naive-Bayes}, família de classificadores probabilísticos; Árvores de decisão e Florestas Aleatórias, Regressão Linear e Regressão Logística. 
+        Para entender melhor os modelos que podemos utilizar no desenvolvimento do algoritmo, será feito o estudo de modelos e técnicas de validação para aprendizado de máquina. Em particular, focaremos em testar modelos simples tais como: Regressão Linear, Regressão Logística, Naïve Bayes, Árvores de Decisão e Florestas Aleatórias 
     
     \item \textbf{Desenvolvimento do algoritmo (30 horas)} \\
-        Na segunda fase da pesquisa, serão definidos os critérios preliminares de decisão para o algoritmo de seleção, buscando decidir os \textbf{meta-parâmetros} e criar parâmetros derivados para construir e treinar 
+        Na segunda fase da pesquisa, serão definidos os critérios preliminares de decisão para o algoritmo de seleção, buscando decidir os \textbf{meta-parâmetros} e criar os \textbf{parâmetros derivados} para construir e treinar e os modelos.
           
     \item \textbf{Desenvolvimento do serviço (25 horas)} \\
         Após definir o algoritmo a ser utilizado, será desenvolvido um novo componente do serviço de seleção do Hacknizer, utilizando Flask para criar uma API GraphQL  que receberá uma lista de inscritos para uma edição de um determinado hackathon e, aplicando o algoritmo desenvolvido, poderá gerar uma lista sugerindo os participantes para tal hackathon. 
